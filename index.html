@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="w-3/4 mx-auto pt-10 space-y-6" id="main">
+      <h1>Todo App</h1>
+      <input
+        class="
+          focus:border-light-blue-500
+          focus:ring-1 focus:ring-light-blue-500
+          focus:outline-none
+          w-full
+          text-sm text-black
+          placeholder-gray-500
+          border border-gray-200
+          rounded-md
+          py-2
+          pl-10
+        "
+        type="text"
+        aria-label="write a todo..."
+        placeholder="write a todo..."
+        id="input"
+      />
+
+      <button
+        class="text-base font-medium rounded-lg p-3 bg-red-500 text-white"
+        id="addButton"
+      >
+        Add to do
+      </button>
+
+      <ul id="list" class="space-y-2"></ul>
+    </div>
+    <!-- <template></template> -->
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
