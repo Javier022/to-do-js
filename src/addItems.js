@@ -1,9 +1,20 @@
-import { getData, setData } from "./db.js";
+import { setData } from "./db.js";
 
-const addTodo = (input, ul) => {
-  const li = document.createElement("li");
-  li.innerHTML = /*html*/ `<div class="flex justify-between shadow rounded-md p-1">
-        <div class="w-3/4">
+const addTodo = (input, todoList) => {
+  const todo = document.createElement("div");
+  todo.dataset.id = Date.now();
+  todo.classList.add(
+    "flex",
+    "justify-between",
+    "shadow",
+    "rounded-md",
+    "p-4",
+    "my-5"
+  );
+
+  todo.innerHTML =
+    /*html*/
+    `<div id="li" class="w-3/4">
           <p class="px-3 inline-block align-middle  overflow-clip overflow-hidden ...">${input.value}</p>
         </div>
         <div
@@ -16,6 +27,7 @@ const addTodo = (input, ul) => {
           "
         >
           <button
+            id="reset"
             class="
               h-8
               w-12
@@ -33,6 +45,7 @@ const addTodo = (input, ul) => {
             -
           </button>
           <button
+            id="delete"
             class="
               h-8
               w-12
@@ -50,25 +63,33 @@ const addTodo = (input, ul) => {
             x
           </button>
         </div>
-      </div>
+      
 `;
 
-  ul.prepend(li);
+  // console.log(todo.dataset.id, "add id");
+  todo.querySelector(".bg-yellow-500").dataset.id = todo.dataset.id;
+  todo.querySelector(".bg-green-500").dataset.id = todo.dataset.id;
+
+  todoList.prepend(todo);
 
   input.value = "";
 
-  createTodo(li.querySelector("p"));
+  createTodo(todo);
 };
 
 const createTodo = (todo) => {
-  const value = todo.textContent;
+  const todos_db = JSON.parse(localStorage.getItem("todo"));
+
+  const value = todo.querySelector("p").textContent;
+
   let todos = [];
 
   let newtodo = {
+    id: todo.dataset.id,
     name: value,
   };
 
-  getData && getData.length !== 0 ? (todos = [...getData]) : todos;
+  todos_db ? (todos = [...todos_db]) : todos;
 
   todos.push(newtodo);
 

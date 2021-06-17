@@ -39,9 +39,73 @@
         Add to do
       </button>
 
-      <ul id="list" class="space-y-2"></ul>
+      <div id="todo-list" class="space-y-2"></div>
     </div>
-    <!-- <template></template> -->
+
+    <!-- templates ...-->
+
+    <template id="template-todo">
+      <div class="flex justify-between shadow rounded-md p-3 my-5">
+        <div id="li" class="w-3/4">
+          <p
+            class="
+              px-3
+              inline-block
+              align-middle
+              overflow-clip overflow-hidden
+              ...
+            "
+          ></p>
+        </div>
+        <div
+          class="
+            w-1/4
+            flex flex-wrap
+            content-center
+            items-center
+            justify-around
+          "
+        >
+          <button
+            id="reset"
+            class="
+              h-8
+              w-12
+              rounded
+              transition
+              duration-500
+              ease-in-out
+              bg-yellow-500
+              transform
+              hover:-translate-y-1
+              hover:scale-110
+              ...
+            "
+          >
+            -
+          </button>
+          <button
+            id="delete"
+            class="
+              h-8
+              w-12
+              rounded
+              transition
+              duration-500
+              ease-in-out
+              bg-green-500
+              transform
+              hover:-translate-y-1
+              hover:scale-110
+              ...
+            "
+          >
+            x
+          </button>
+        </div>
+      </div>
+    </template>
+
     <script src="index.js" type="module"></script>
   </body>
 </html>
