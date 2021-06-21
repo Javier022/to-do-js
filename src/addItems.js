@@ -9,12 +9,13 @@ const addTodo = (input, todoList) => {
     "shadow",
     "rounded-md",
     "p-4",
-    "my-5"
+    "my-5",
+    "bg-none"
   );
 
   todo.innerHTML =
     /*html*/
-    `<div id="li" class="w-3/4">
+    `<div class="w-3/4">
           <p class="px-3 inline-block align-middle  overflow-clip overflow-hidden ...">${input.value}</p>
         </div>
         <div
@@ -39,10 +40,10 @@ const addTodo = (input, todoList) => {
               transform
               hover:-translate-y-1
               hover:scale-110
-              ...
+              
             "
           >
-            -
+           <i class="fa fa-repeat"></i>
           </button>
           <button
             id="delete"
@@ -57,18 +58,19 @@ const addTodo = (input, todoList) => {
               transform
               hover:-translate-y-1
               hover:scale-110
-              ...
+             
             "
           >
-            x
+            <li class="fa fa-close"></li>
           </button>
         </div>
       
 `;
 
-  // console.log(todo.dataset.id, "add id");
   todo.querySelector(".bg-yellow-500").dataset.id = todo.dataset.id;
   todo.querySelector(".bg-green-500").dataset.id = todo.dataset.id;
+  todo.querySelector(".fa-repeat").dataset.id = todo.dataset.id;
+  todo.querySelector(".fa-close").dataset.id = todo.dataset.id;
 
   todoList.prepend(todo);
 
@@ -87,6 +89,7 @@ const createTodo = (todo) => {
   let newtodo = {
     id: todo.dataset.id,
     name: value,
+    state: false,
   };
 
   todos_db ? (todos = [...todos_db]) : todos;

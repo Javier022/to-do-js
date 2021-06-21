@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-do</title>
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div class="w-3/4 mx-auto pt-10 space-y-6" id="main">
+    <div class="w-3/4 md:w-1/2 mx-auto pt-10 space-y-6">
       <h1>Todo App</h1>
       <input
         class="
@@ -45,8 +49,8 @@
     <!-- templates ...-->
 
     <template id="template-todo">
-      <div class="flex justify-between shadow rounded-md p-3 my-5">
-        <div id="li" class="w-3/4">
+      <div class="flex justify-between shadow rounded-md p-3 my-5 bg-none">
+        <div class="w-3/4">
           <p
             class="
               px-3
@@ -79,10 +83,9 @@
               transform
               hover:-translate-y-1
               hover:scale-110
-              ...
             "
           >
-            -
+            <i class="fa fa-repeat"></i>
           </button>
           <button
             id="delete"
@@ -97,10 +100,9 @@
               transform
               hover:-translate-y-1
               hover:scale-110
-              ...
             "
           >
-            x
+            <li class="fa fa-close"></li>
           </button>
         </div>
       </div>
